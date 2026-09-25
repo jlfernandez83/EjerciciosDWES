@@ -5,7 +5,7 @@ function dump($var){
 }
 
 
-function getCSVContentInArray(String $rutaCSV){
+function getCSVContentInArray(String $rutaCSV, String|null $nombreClave=null){
   //TODO: Mejora esta función para poder elegir el campo que funciona del clave;
 
   $contenidoArchivo = file_get_contents($rutaCSV);
@@ -17,16 +17,22 @@ function getCSVContentInArray(String $rutaCSV){
 
   $encabezadoArrayNuevo = array_map('trim',$encabezadoArray);
 
-  $coches = [];
+  $arrayResultados = [];
 
   foreach($lineasCSV as $clave => $linea){
     if($clave != 0){
       $camposLinea = explode(',', $linea); 
 
-      $coche = array_combine($encabezadoArrayNuevo,$camposLinea);
-
-      $coches[]= $coche; 
+      $elemento = array_combine($encabezadoArrayNuevo,$camposLinea);
+      
+      if(isset($nombreClave)){
+        $valorClave = trim($elemento[$nombreClave]);
+        $arrayResultados[$valorClave]= $elemento;
+      }else{
+        $arrayResultados[]= $elemento; 
+      }
+      
     }  
   }
-  return $coches;
+  return $arrayResultados;
 }
