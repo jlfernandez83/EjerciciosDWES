@@ -1,11 +1,13 @@
 <?php
 
+
 function dump($var){
   echo '<pre>'.print_r($var,1).'</pre>';
 }
 
 
 function getCSVContentInArray(String $rutaCSV, String|null $nombreClave=null){
+  
   //TODO: Mejora esta función para poder elegir el campo que funciona del clave;
 
   $contenidoArchivo = file_get_contents($rutaCSV);
@@ -35,4 +37,21 @@ function getCSVContentInArray(String $rutaCSV, String|null $nombreClave=null){
     }  
   }
   return $arrayResultados;
+}
+
+
+function getCochesMarkupFromData(array $data){
+  $output = '';
+   
+  $output .= '<ul>'; 
+  
+  foreach($data as $clave => $valor){
+    $output.='<li>';
+    $output.=$valor['marca'];
+    $output.='</li>';
+  }
+
+  $output .= '</ul>'; 
+  
+  return $output;
 }
