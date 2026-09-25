@@ -10,7 +10,6 @@ $coches = getCSVContentInArray(__DIR__.'/data_source/coches.csv');
 
 $output = getCochesMarkupFromData($coches);
 
-echo $output;
 ?>
 <!DOCTYPE html>
 <html lang="es">
