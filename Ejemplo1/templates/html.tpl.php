@@ -9,7 +9,7 @@
     <?php if(isset($coches)): ?>
         <ul>
         <?php foreach($coches as $clave => $valor ): ?>
-            <li><?=  $valor['marca']; ?></li>
+            <li><?=  htmlspecialchars($valor['marca']); ?></li>
         <?php endforeach ?>
         </ul>
     <?php endif ?>
