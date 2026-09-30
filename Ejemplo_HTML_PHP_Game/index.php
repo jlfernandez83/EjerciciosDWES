@@ -7,10 +7,16 @@ include(__DIR__.'/src/functions.php');
 
 
 $board = [
-
+ ['grass', 'water'],
+ ['water', 'grass'],
+ ['water', 'grass'],
+ ['water', 'grass'],
 ];
 
-$boardMarkup = getBoardMarkup($board);
+$num_rows = count($board);
+$num_columns = count($board[0]);
+
+$board_markup = getBoardMarkup($board);
 
 include(__DIR__.'/templates/index.tpl.php');
 
