@@ -1,0 +1,16 @@
+wall-top-left,wall-top,wall-top,wall-top,wall-top,wall-top,wall-top-right,grass,grass,grass,wall-top-left,wall-top,wall-top,wall-top,wall-top,wall-top-right
+wall-left,wall,wall,wall,wall,wall,wall-right,grass,grass,grass,wall-left,wall,wall,wall,wall,wall-right
+wall-left,wall,wall,wall-entrance,wall,wall,wall-right,grass,bush,grass,grass,grass,grass,grass,grass,grass
+grass,grass,grass,sand-1,grass,grass,grass,grass,grass,grass,grass,grass,bush,grass,bush-dry,grass
+grass,bush,grass,sand-2,sand-2,sand-2,sand-2,sand-2,grass,grass,grass,grass,grass,grass,grass,grass
+bush,grass,grass,grass,grass,grass,grass,sand-3,grass,water-top-left,water-top,water-top,water-top,water-top-right,grass,grass
+grass,grass,bush,grass,grass,grass,grass,sand-1,grass,water-left,water,water,water,water-right,grass,grass
+grass,grass,grass,grass,tombstone,tombstone,grass,sand-2,grass,water-left,water,water,water,water-right,grass,grass
+grass,grass,grass,grass,grass,grass,grass,sand-3,grass,water-bottom-left,water-bottom,water-bottom,water-bottom,water-bottom-right,grass,grass
+grass,grass,grass,grass,grass,tombstone,grass,sand-1,grass,grass,grass,grass,boulder,grass,grass,grass
+rock-brown-top-left,rock-brown-top,rock-brown-top,rock-brown-top,rock-brown-top-right,grass,grass,sand-2,grass,boulder,grass,grass,grass,grass,grass,grass
+rock-brown-left,rock-brown,rock-brown,rock-brown,rock-brown-right,grass,grass,sand-3,grass,grass,grass,rock-grey-top-left,rock-grey-top,rock-grey-top,rock-grey-top,rock-grey-top-right
+rock-brown-left,rock-brown,rock-brown,rock-brown,rock-brown-right,grass,grass,sand-1,grass,grass,grass,rock-grey-left,rock-grey,rock-grey,rock-grey,rock-grey-right
+rock-brown-left,rock-brown,rock-brown,rock-brown,rock-brown-right,grass,grass,sand-2,grass,grass,stairs,rock-grey-left,rock-grey,rock-grey,rock-grey,rock-grey-right
+grass,grass,grass,grass,grass,bush,grass,sand-3,grass,grass,grass,rock-grey-left,rock-grey,rock-grey,rock-grey,rock-grey-right
+grass,grass,grass,grass,grass,grass,grass,sand-1,grass,bush-dry,grass,rock-grey-left,rock-grey,rock-grey,rock-grey,rock-grey-right

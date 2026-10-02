@@ -6,12 +6,7 @@ error_reporting(E_ALL);
 include(__DIR__.'/src/functions.php');
 
 
-$board = [
- ['grass', 'water'],
- ['water', 'grass'],
- ['water', 'grass'],
- ['water', 'grass'],
-];
+$board = getBoardFromCSV(__DIR__.'/src/board_data/board1.csv');
 
 $num_rows = count($board);
 $num_columns = count($board[0]);
