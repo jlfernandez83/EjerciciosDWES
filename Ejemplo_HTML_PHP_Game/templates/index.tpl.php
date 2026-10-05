@@ -33,9 +33,9 @@
         }
 
         .controls-container {
-            background-color: blue;
             width: 215px;
             height: 215px;
+            display:flex;
         }
 
         .tile {
@@ -266,7 +266,19 @@
         <h1>Zelda 40th Anniversary</h1>
         <?php echo $board_markup; ?>
         <div class="controls-container">
-
+            <?php if($link_pos['top'] != 1): ?>
+                <a href="./?link_top_pos=<?php echo $link_pos['top']-1; ?>&link_left_pos=<?php echo $link_pos['left']; ?>">Arriba</a>
+            <?php endif ?>
+            <?php if($link_pos['left'] != $num_columns): ?>
+                <a href="./?link_top_pos=<?php echo $link_pos['top']; ?>&link_left_pos=<?php echo $link_pos['left']+1; ?>">Derecha</a>
+            <?php endif ?>
+            <?php if($link_pos['top'] != $num_rows): ?>
+                <a href="./?link_top_pos=<?php echo $link_pos['top']+1; ?>&link_left_pos=<?php echo $link_pos['left']; ?>">Abajo</a>
+            <?php endif ?>
+            <?php if($link_pos['left'] != 1): ?>
+                <a href="./?link_top_pos=<?php echo $link_pos['top']; ?>&link_left_pos=<?php echo $link_pos['left']-1; ?>">Izquierda</a>
+            <?php endif ?>
+                
         </div>
     </main>
 
