@@ -1,7 +1,20 @@
 <?php
 
 function dump($var){
-    echo '<pre>'.print_r($var,1).'</pre>';
+    echo '<pre>';
+    var_dump($var);
+    echo '</pre>';
+}
+
+function getLinkPosFromQS($num_rows,$num_columns){
+
+    $options_left = ['options'=> ['default'=>1, 'min_range'=>0, 'max_range'=>$num_columns]];
+    $options_top = ['options'=> ['default'=>1, 'min_range'=>0, 'max_range'=>$num_rows]];
+
+    $left = filter_input(INPUT_GET,'link_left_pos',FILTER_VALIDATE_INT,$options_left);
+    $top = filter_input(INPUT_GET,'link_top_pos',FILTER_VALIDATE_INT,$options_top);
+
+    return ['left' => $left, 'top' => $top];
 }
 
 function getBoardFromCsv(String $rutaCSV)
@@ -29,7 +42,8 @@ function getBoardMarkup($board_data){
             $output .= '<div class="tile '.$tile_value.'-tile"></div>';
         }
     }
-            
+    //Metemos también a link
+    $output .= '<div class="character link"></div>';
     $output .= '</div>';
 
     return $output;

@@ -3,6 +3,7 @@
 /** @var String $num_columns
  *  @var String $num_rows
  *  @var String $board_markup 
+ *  @var array $link_pos
  */
 ?>
 <!DOCTYPE html>
@@ -28,7 +29,7 @@
             display: grid;
             grid-template-columns: repeat(<?php echo $num_columns; ?>, 16px);
             grid-template-rows: repeat(<?php echo $num_rows; ?>, 16px);
-
+            position: relative;
         }
 
         .controls-container {
@@ -41,6 +42,21 @@
             background-color: yellow;
             background-image: url(./public/img/zelda_stage_bg.png);
         }
+
+        /* -- Estilos de personajes */
+        .character{
+          width: 16px;
+          height: 16px;
+          position: absolute;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+        .link{
+            background-image: url(./public/img/link_sprite.png);
+            top: <?php echo ($link_pos['top']-1)*16; ?>px;
+            left: <?php echo ($link_pos['left']-1)*16; ?>px;
+        }
+  
 
 
         /* ── Fila 0 ─────────────────────────────── */

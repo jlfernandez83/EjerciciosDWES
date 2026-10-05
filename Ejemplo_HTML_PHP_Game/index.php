@@ -11,6 +11,8 @@ $board = getBoardFromCSV(__DIR__.'/src/board_data/board1.csv');
 $num_rows = count($board);
 $num_columns = count($board[0]);
 
+$link_pos = getLinkPosFromQS($num_rows,$num_columns);
+
 $board_markup = getBoardMarkup($board);
 
 include(__DIR__.'/templates/index.tpl.php');
