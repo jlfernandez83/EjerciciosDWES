@@ -3,6 +3,9 @@
 /**
  * @var array $reservas 
  * Array con la lista de reservas
+ * 
+ *  @var array $filtros
+ * Array con los filtros válidos presentes, si los hay.
  */
 ?>
 
