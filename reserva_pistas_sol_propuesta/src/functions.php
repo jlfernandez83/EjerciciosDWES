@@ -92,3 +92,89 @@ function _validateFilterFecha(&$filtro){
         
         unset($filtro['fecha']);
 }
+
+function validateNuevaReservaInput(){
+    $datosValidos = [
+        'nombre' => _validateNombreNuevaReserva(),
+        'email' => _validateEmailNuevaReserva(),
+        'pista' => _validatePistaNuevaReserva(),
+        'fecha' => _validateFechaNuevaReserva(),
+        'hora' =>  _validateHoraNuevaReserva(),
+        'material' => _validateMaterialNuevaReserva(),
+        'normas' => _validateNormasNuevaReserva()
+    ];
+    return $datosValidos;
+}
+function _validateEmailNuevaReserva(){
+    //TODO
+    return [
+        'valido' => true,
+        'value' => 'Email@example.com'
+    ];
+}
+function _validatePistaNuevaReserva(){
+    //TODO
+    return [
+        'valido' => true,
+        'value' => 'Baloncesto'
+    ];
+}
+function _validateFechaNuevaReserva(){
+    //TODO
+    return [
+        'valido' => true,
+        'value' => '2026-05-05'
+    ];
+}
+function _validateHoraNuevaReserva(){
+    //TODO
+    return [
+        'valido' => true,
+        'value' => 'Email@example.com'
+    ];
+}
+function _validateMaterialNuevaReserva(){
+    //TODO
+    return [
+        'valido' => true,
+        'value' => 'peto'
+    ];
+}
+function _validateNormasNuevaReserva(){
+    //TODO
+    return [
+        'valido' => true,
+        'value' => 'true'
+    ];
+}
+function _validateNombreNuevaReserva(){
+    if($nombre = filter_input(INPUT_POST,'nombre')){
+        //Establecemos validaciones adicionales;
+        if(strlen($nombre)<3){
+            return [
+                'valido' => false,
+                'mensaje' => 'El nombre debe tener más de 2 caracteres',
+                'value' => $nombre
+            ];
+        }
+        if(strlen($nombre)>60){
+            return [
+                'valido' => false,
+                'mensaje' => 'El nombre debe tener como máximo 60 caracteres',
+                'value' => $nombre
+            ];
+        }
+        //Aquí llega si el nombre es válido
+        return [
+            'valido' => true,
+            'value' => $nombre
+        ];
+    }else{
+        return [
+                'valido' => false,
+                'mensaje' => 'La reserva debe tener un nombre',
+                'value' => $nombre
+            ]; 
+    }
+    
+}

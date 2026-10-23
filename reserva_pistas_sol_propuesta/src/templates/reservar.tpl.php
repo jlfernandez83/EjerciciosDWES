@@ -1,7 +1,7 @@
 <?php
 
 /**
-
+    @var array $datosValidos es un array que está disponible cuando el usuario está haciendo un intento de reserva
  */
 ?>
 <!DOCTYPE html>
@@ -12,10 +12,21 @@
     <title>Reserva de pistas</title>
 </head>
 <body>
+    <!--Ponemos los errores -->
+    <?php if(isset($datosValidos)): ?>
+        <div class="erroresContainer"><ul>
+        <?php foreach($datosValidos as $nombreCampo => $inforValores): ?> 
+            <?php if(!$inforValores['valido']): ?>
+            <li><?php echo htmlspecialchars($inforValores['mensaje']); ?></li>
+            <?php endif; ?> 
+        <?php endforeach; ?>
+        </ul>
+        </div>
+    <?php endif; ?>
     <fieldset><legend>Nueva reserva</legend>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-        <label for="nombre">Nombre: </label><input id="nombre" type="text" name="nombre"><!--TODO: Añadir restricciones en front por regexp-->
-        <label for="email">Email: </label><input id="email" type="email" name="email"><!--TODO: Cambiar a type email-->
+        <label for="nombre">Nombre: </label><input id="nombre" type="text" name="nombre" value="<?php echo ($datosValidos['nombre']['value'])? htmlspecialchars($datosValidos['nombre']['value']):''; ?>">
+        <label for="email">Email: </label><input id="email" type="email" name="email">
         <label for="pista">Pista: </label>
         <select id="pista" name="pista">
             <?php foreach(PISTAS_VALIDAS as $pista): ?>
@@ -37,9 +48,9 @@
             <?php endforeach; ?>
         </fieldset>
         <input type="checkbox" id="normas_aceptadas" value="normas_aceptadas"><label for="normas_aceptadas">Acepto que vendas mi alma al diablo</label>
-
+        <br>
+        <button type="submit" name="nueva_reserva" value="nueva_reserva">Hacer reserva</button>
     </form>
     </fieldset>
-    
 </body>
 </html>
