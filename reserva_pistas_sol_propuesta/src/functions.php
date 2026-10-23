@@ -5,7 +5,39 @@ use function PHPSTORM_META\type;
 function dump($var){
     echo '<pre>'.print_r($var,1).'</pre>';
 }
-function getCSVData($path){
+
+function getPersistentData($dataSource, $origin){
+
+    switch($origin){
+        case 'db':
+            return _getDBData($dataSource);
+        break;
+        case 'file':
+            return _getCSVData($dataSource);
+        default:
+            return null;
+    }
+}
+function _getDBData($dbConnectionParameters){
+    $data = [];
+    $dbh =  new PDO(
+        $dbConnectionParameters['dsn'],
+        $dbConnectionParameters['username'],
+        $dbConnectionParameters['password'],
+    );
+    if($dbh){
+        $sth = $dbh->prepare('SELECT * FROM reserva');
+        $sth->execute();
+        while($row = $sth->fetch(PDO::FETCH_ASSOC)) {
+            unset($row['id']);
+            $row['material']=$row['material']??'';
+            $data[]=$row; 
+        }
+        return $data;
+    }
+    $dbh = null;
+}
+function _getCSVData($path){
     $data = [];
     if (($filehandler = fopen($path, "r")) !== false) {
         $cabeceras = fgetcsv($filehandler);
