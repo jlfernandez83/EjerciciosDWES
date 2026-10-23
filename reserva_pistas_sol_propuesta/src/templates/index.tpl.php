@@ -61,6 +61,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    <a href="./reservar.php">Nueva reserva</a>
 </body>
 
 </html>
